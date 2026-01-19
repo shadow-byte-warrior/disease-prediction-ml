@@ -87,7 +87,7 @@ Copy code
 pip install pandas numpy scikit-learn flask streamlit
 
 yaml
-Copy code
+
 
 ---
 
