@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Disease Prediction</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
+            width: 90%;
+            max-width: 600px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #333;
+        }
+
+        select {
+            width: 100%;
+            height: 220px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            font-size: 14px;
+        }
+
+        option {
+            padding: 4px;
+        }
+
+        .btn {
+            background: #0d47a1;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 15px;
+            cursor: pointer;
+            margin-top: 15px;
+            width: 100%;
+        }
+
+        .btn:hover {
+            background: #1565c0;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: #e8f5e9;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 600;
+            color: #1b5e20;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Intelligent Disease Prediction System</h2>
+
+        <form method="POST">
+            <label>Select Symptoms</label><br><br>
+
+            <select name="symptoms" multiple>
+                {% for s in symptoms %}
+                <option value="{{s}}">{{s}}</option>
+                {% endfor %}
+            </select>
+
+            <button type="submit" class="btn">Predict Disease</button>
+        </form>
+
+        {% if prediction %}
+        <div class="result">
+            Predicted Disease: {{prediction}}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
